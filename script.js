@@ -67,7 +67,7 @@ function resetFunction() {
     minutes.textContent='00';
     seconds.textContent='00';
     defaulttext.textContent='Select a Content';
-    speed.textContent = '';
+    speed.textContent = '000';
 
 }
 // disable copy , cut , paste options in the textarea box
