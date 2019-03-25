@@ -80,7 +80,7 @@ return false;
 //Timer creation
 let calling=0;
 function stopTimerRecalling(arraylength) {
-    if(arraylength.length===1&&calling===0){
+    if(arraylength.length>=1&&calling===0){
         calling++;
         sec= setInterval(timer,1000);
     }
