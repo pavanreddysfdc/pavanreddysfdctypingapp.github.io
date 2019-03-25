@@ -1,0 +1,50 @@
+.background{
+    margin:0;
+    background-color: teal;
+}
+#main-div{
+    text-align: center;
+    margin-top:10px;
+}
+
+textarea{
+    box-shadow: 0 0 20px indigo;
+    padding:15px;
+    font-family: Arial,sans-serif;
+    border: none;
+}
+.textarea-div{
+    margin-top:15px;
+}
+
+.col-sm-3,.col-sm-6{
+    border-right: 2px solid darkcyan;
+}
+#my-image{
+    margin-left: 10%;
+    text-align: center;
+}
+.col-sm-3{
+    margin: 10px;
+}
+.col-sm-2{
+    margin-top: 50px;
+}
+#side a{
+    text-decoration: none;
+    margin-top: 10px;
+}
+form textarea{
+    width:90%;
+    height:200px;
+}
+#footer{
+    position:fixed;
+    color: white;
+    background-color: yellow;
+
+}
+footer{
+    text-align: center;
+    background-color: green;
+}
