@@ -1,1 +1,0 @@
-# pavanreddysfdctypingapp.github.io

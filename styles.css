@@ -8,7 +8,8 @@
 }
 
 textarea{
-    box-shadow: 0 0 20px indigo;
+    box-shadow: 0 0 10px indigo;
+    border-radius: 15px;
     padding:15px;
     font-family: Arial,sans-serif;
     border: none;
@@ -30,6 +31,10 @@ textarea{
 .col-sm-2{
     margin-top: 50px;
 }
+.col-sm-2 p{
+    font-family: Chiller;
+    font-size: 20px;
+}
 #side a{
     text-decoration: none;
     margin-top: 10px;
@@ -38,13 +43,24 @@ form textarea{
     width:90%;
     height:200px;
 }
-#footer{
-    position:fixed;
-    color: white;
-    background-color: yellow;
-
+.col-sm-3 a,.col-sm-3 a:hover{
+    text-decoration: none;
+    color:white;
+    padding: 5px;
+    margin:10px;
 }
-footer{
-    text-align: center;
-    background-color: green;
+.col-sm-3 .row{
+    margin:10px;
+}
+h5{
+    color:black;
+    font-family: Chiller;
+}
+h1{
+    color: midnightblue;
+    font-family: Chiller;
+}
+#footer{
+    background-color: darkcyan;
+    font-family:"Tempus Sans ITC";
 }
