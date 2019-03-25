@@ -4,20 +4,30 @@ let finishButton = document.querySelector('#finish-button');
 let congratsText = document.querySelector('#congrats');
 let resetButton = document.querySelector('#reset-button');
 let pauseButton = document.querySelector('#pause-button');
-let speed = document.querySelector('#typingSpeed');
+let resumeButton = document.querySelector('#resume-button');
+let speed = document.querySelector('#typing-speed');
 let minutes = document.querySelector('#min');
 let seconds = document.querySelector('#sec');
-let typingSpeed;
-let  sec= setInterval(timer,1000);
+let cont1 = document.querySelector('#content-1');
+let cont2 = document.querySelector('#content-2');
+let cont3 = document.querySelector('#content-3');
+let cont4 = document.querySelector('#content-4');
+let cont5 = document.querySelector('#content-5');
+let cont6 = document.querySelector('#content-6');
+
+let  sec;
 
 //validating the text entered in submitted text area, by using event listener with keyup event
 submittedtext.addEventListener('keyup',valTyping);
 let defTextArray = defaulttext.value;
+
 function valTyping() {
+
     let subTextArray = submittedtext.value;
+    stopTimerRecalling(subTextArray);
     if (subTextArray.length >0) {
-        for (let i = 0; i < subTextArray.length; i++) {
-            if (defTextArray[i] === subTextArray[i]) {
+        for (let i = 1; i <= subTextArray.length; i++) {
+            if (defTextArray.substring(0,i) === subTextArray.substring(0,i)) {
                 submittedtext.style.background = 'green';
                 congratsText.textContent='';
             }
@@ -38,6 +48,7 @@ function congo() {
     if(defaulttext.value===submittedtext.value){
         clearInterval(sec);
         resetFunction();
+        findSpeed();
         congratsText.textContent='Congrats! You have successfully completed the task';
     }
 }
@@ -47,27 +58,39 @@ function congo() {
 
 resetButton.addEventListener('click',resetFunction);
 function resetFunction() {
+    clearInterval(sec);
+    count=0;
     submittedtext.value='';
     submittedtext.style.background = 'white';
     congratsText.textContent='';
     minutes.textContent='00';
     seconds.textContent='00';
-    count=0;
+    defaulttext.textContent='Select a Content';
+
+
 }
 // disable copy , cut , paste options in the textarea box
 
 submittedtext.oncut = submittedtext.oncopy = submittedtext.onpaste = function(event) {
-    return false;
+return false;
 };
 
 
 //Timer creation
+let calling=0;
+function stopTimerRecalling(arraylength) {
+    if(arraylength.length===1&&calling===0){
+        calling++;
+        sec= setInterval(timer,1000);
+    }
+
+}
+
 
 let min=0;
 let count=0;
 function timer(){
     count++;
-    console.log(typeof(count));
     seconds.textContent=count;
     if(count%60==0){
         count=0;
@@ -76,11 +99,81 @@ function timer(){
     }
 }
 
-// evaluating the typing speed => make every task with 200
 
-function findSpeed() {
-    speed.textContent = (100/((min*60)+sec))+' wpm';
+// timer pause functionality
+pauseButton.addEventListener('click',pauseTimer);
+function pauseTimer() {
+
+    clearInterval(sec);
+    pauseButton.style.display="none";
+    resumeButton.style.display="block";
+
+}
+//resume the timer
+resumeButton.addEventListener('click',resumeTimer);
+function resumeTimer() {
+    sec=setInterval(timer,1000);
+    resumeButton.style.display="none";
+    pauseButton.style.display="block";
 
 }
 
+// evaluating the typing speed => make every task with 200
+function findSpeed() {
+        var typingspeed= ((100/((min*60)+sec))*60);
+    speed.textContent = typingspeed;
+}
+
+//Assigning Contents
+cont1.addEventListener('click',content1);
+function content1() {
+    resetFunction();
+    console.log('clicked');
+    defaulttext.textContent = 'content 1 dolor sit amet, consectetur adipisicing elit. Aperiam cum eius eveniet fugiat id illo magni nemo nisi nulla officia perspiciatis praesentium quasi quibusdam, quo repellat sapiente sunt suscipit tempora totam velit. Ab, aliquam aperiam, consequuntur dolorum ea, eaque eligendi eum ipsam maiores nobis non omnis optio voluptatum! Asperiores assumenda blanditiis corporis cum cupiditate dicta distinctio doloremque dolores ducimus eveniet expedita, facilis harum illo illum ipsa magni maiores mollitia nostrum perferendis placeat quis quo repellat sapiente sint suscipit tempora tempore totam ullam vero voluptatem. Cumque dolor, ea eius ipsa labore nemo obcaecati sint tempora. Cum dolores labore optio pariatur voluptatibus?';
+    defTextArray = defaulttext.value;
+    valTyping();
+
+
+}
+cont2.addEventListener('click',content2);
+function content2() {
+    resetFunction();
+    defaulttext.textContent='content 2 dolor sit amet, consectetur adipisicing elit. Aperiam cum eius eveniet fugiat id illo magni nemo nisi nulla officia perspiciatis praesentium quasi quibusdam, quo repellat sapiente sunt suscipit tempora totam velit. Ab, aliquam aperiam, consequuntur dolorum ea, eaque eligendi eum ipsam maiores nobis non omnis optio voluptatum! Asperiores assumenda blanditiis corporis cum cupiditate dicta distinctio doloremque dolores ducimus eveniet expedita, facilis harum illo illum ipsa magni maiores mollitia nostrum perferendis placeat quis quo repellat sapiente sint suscipit tempora tempore totam ullam vero voluptatem. Cumque dolor, ea eius ipsa labore nemo obcaecati sint tempora. Cum dolores labore optio pariatur voluptatibus?';
+    defTextArray = defaulttext.value;
+    valTyping();
+}
+
+
+cont3.addEventListener('click',content3);
+function content3() {
+    resetFunction();
+    defaulttext.textContent='content 3 dolor sit amet, consectetur adipisicing elit. Aperiam cum eius eveniet fugiat id illo magni nemo nisi nulla officia perspiciatis praesentium quasi quibusdam, quo repellat sapiente sunt suscipit tempora totam velit. Ab, aliquam aperiam, consequuntur dolorum ea, eaque eligendi eum ipsam maiores nobis non omnis optio voluptatum! Asperiores assumenda blanditiis corporis cum cupiditate dicta distinctio doloremque dolores ducimus eveniet expedita, facilis harum illo illum ipsa magni maiores mollitia nostrum perferendis placeat quis quo repellat sapiente sint suscipit tempora tempore totam ullam vero voluptatem. Cumque dolor, ea eius ipsa labore nemo obcaecati sint tempora. Cum dolores labore optio pariatur voluptatibus?';
+    defTextArray = defaulttext.value;
+    valTyping();
+}
+
+
+cont4.addEventListener('click',content4);
+function content4() {
+    resetFunction();
+    defaulttext.textContent='content 4 dolor sit amet, consectetur adipisicing elit. Aperiam cum eius eveniet fugiat id illo magni nemo nisi nulla officia perspiciatis praesentium quasi quibusdam, quo repellat sapiente sunt suscipit tempora totam velit. Ab, aliquam aperiam, consequuntur dolorum ea, eaque eligendi eum ipsam maiores nobis non omnis optio voluptatum! Asperiores assumenda blanditiis corporis cum cupiditate dicta distinctio doloremque dolores ducimus eveniet expedita, facilis harum illo illum ipsa magni maiores mollitia nostrum perferendis placeat quis quo repellat sapiente sint suscipit tempora tempore totam ullam vero voluptatem. Cumque dolor, ea eius ipsa labore nemo obcaecati sint tempora. Cum dolores labore optio pariatur voluptatibus?';
+    defTextArray = defaulttext.value;
+    valTyping();
+}
+
+cont5.addEventListener('click',content5);
+function content5() {
+    resetFunction();
+    defaulttext.textContent = 'content 5 dolor sit amet, consectetur adipisicing elit. Aperiam cum eius eveniet fugiat id illo magni nemo nisi nulla officia perspiciatis praesentium quasi quibusdam, quo repellat sapiente sunt suscipit tempora totam velit. Ab, aliquam aperiam, consequuntur dolorum ea, eaque eligendi eum ipsam maiores nobis non omnis optio voluptatum! Asperiores assumenda blanditiis corporis cum cupiditate dicta distinctio doloremque dolores ducimus eveniet expedita, facilis harum illo illum ipsa magni maiores mollitia nostrum perferendis placeat quis quo repellat sapiente sint suscipit tempora tempore totam ullam vero voluptatem. Cumque dolor, ea eius ipsa labore nemo obcaecati sint tempora. Cum dolores labore optio pariatur voluptatibus?';
+    defTextArray = defaulttext.value;
+    valTyping();
+}
+
+cont6.addEventListener('click',content6);
+function content6() {
+    resetFunction();
+    defaulttext.textContent='content 6 dolor sit amet, consectetur adipisicing elit. Aperiam cum eius eveniet fugiat id illo magni nemo nisi nulla officia perspiciatis praesentium quasi quibusdam, quo repellat sapiente sunt suscipit tempora totam velit. Ab, aliquam aperiam, consequuntur dolorum ea, eaque eligendi eum ipsam maiores nobis non omnis optio voluptatum! Asperiores assumenda blanditiis corporis cum cupiditate dicta distinctio doloremque dolores ducimus eveniet expedita, facilis harum illo illum ipsa magni maiores mollitia nostrum perferendis placeat quis quo repellat sapiente sint suscipit tempora tempore totam ullam vero voluptatem. Cumque dolor, ea eius ipsa labore nemo obcaecati sint tempora. Cum dolores labore optio pariatur voluptatibus?';
+    defTextArray = defaulttext.value;
+    valTyping();
+}
 
