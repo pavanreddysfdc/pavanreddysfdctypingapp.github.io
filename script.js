@@ -25,7 +25,7 @@ function valTyping() {
 
     let subTextArray = submittedtext.value;
     stopTimerRecalling(subTextArray);
-    if (subTextArray.length >0) {
+    if (subTextArray.length >=0) {
         for (let i = 1; i <= subTextArray.length; i++) {
             if (defTextArray.substring(0,i) === subTextArray.substring(0,i)) {
                 submittedtext.style.background = 'green';
@@ -60,6 +60,7 @@ resetButton.addEventListener('click',resetFunction);
 function resetFunction() {
     clearInterval(sec);
     count=0;
+    calling=0;
     submittedtext.value='';
     submittedtext.style.background = 'white';
     congratsText.textContent='';
