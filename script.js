@@ -25,6 +25,7 @@ let length =0;
 function valTyping() {
     let subTextArray = submittedtext.value;
     let spaceRepetition;
+    speed.textContent='000';
     stopTimerRecalling(subTextArray);
 
     if (subTextArray.length >0) {
