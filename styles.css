@@ -1,6 +1,6 @@
 .background{
     margin:0;
-    background-image: url("");
+    background-color:white;
 }
 #main-div{
     text-align: center;
@@ -61,7 +61,7 @@ h1{
     font-family: Chiller;
 }
 #footer{
-    background-color: darkcyan;
+    background-color: white;
     font-family:"Tempus Sans ITC";
 }
 #resume-button{

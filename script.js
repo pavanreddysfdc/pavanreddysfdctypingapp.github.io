@@ -80,6 +80,7 @@ function resetFunction() {
     speed.textContent = '000';
     totalSeconds=0;
     totalSpeed=0;
+    min=0;
 }
 // disable copy , cut , paste options in the textarea box
 
