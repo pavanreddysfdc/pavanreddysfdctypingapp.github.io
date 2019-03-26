@@ -138,7 +138,7 @@ let totalSpeed;
 function findSpeed() {
    totalSeconds = wordCountMin*60 + wordCountSec;
    totalSpeed = (wordCount/totalSeconds)*60;
-   speed.textContent='totalSpeed';
+   speed.textContent=totalSpeed;
 
 }
 
