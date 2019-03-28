@@ -1,0 +1,63 @@
+#homepageBody{
+    background-image: url("images/homepage-background.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.col-sm-12 h1{
+    color:white;
+    text-align: center;
+    margin: 15px;
+}
+.header{
+    text-align: center;
+}
+.col-sm-12 a{
+    text-decoration: none;
+    padding:8px;
+    font-size: 12px;
+    color:black;
+    margin: 10px;
+    box-shadow: 0 0 10px aliceblue;
+    background-color: aliceblue;
+}
+.col-sm-12 a:hover{
+    text-decoration: none;
+    padding:10px;
+    font-size: 16px;
+    color:aliceblue;
+    box-shadow: 0 0 10px aliceblue;
+    margin: 10px;
+    background-color: transparent;
+}
+p{
+    color:white;
+}
+.col-sm-3 h3{
+    color:aliceblue;
+    box-shadow: 0 0 10px;
+    text-align: center;
+    margin: 15px;
+}
+.col-sm-3 a{
+    color:darkgray;
+}
+.p{
+color:lavender;
+}
+.col-sm-8 h3{
+    color:darkgrey;
+}
+.col-sm-12 footer{
+    text-align: center;
+    bottom:0;
+    position: fixed;
+    font-family: Tempus Sans ITC;
+    font-size: 20px;
+}
+.col-sm-3{
+    border-right: 2px solid lightgrey;
+}
+#company-name{
+    font-family: Chiller;
+}

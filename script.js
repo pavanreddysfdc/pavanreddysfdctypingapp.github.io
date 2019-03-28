@@ -14,35 +14,29 @@ let cont3 = document.querySelector('#content-3');
 let cont4 = document.querySelector('#content-4');
 let cont5 = document.querySelector('#content-5');
 let cont6 = document.querySelector('#content-6');
+let totalWords = document.querySelector('#totalWords');
 
 let  sec;
 
 //validating the text entered in submitted text area, by using event listener with keyup event
 submittedtext.addEventListener('keyup',valTyping);
 let defTextArray = defaulttext.value;
-let wordCount=1;
 let length =0;
 function valTyping() {
+    congratsText.textContent='';
     let subTextArray = submittedtext.value;
-    let spaceRepetition;
     speed.textContent='000';
+    totalWords.textContent='000';
     stopTimerRecalling(subTextArray);
 
     if (subTextArray.length >0) {
 
         for (let i = 1; i <= subTextArray.length; i++) {
             if (defTextArray.substring(0,i) === subTextArray.substring(0,i)) {
-                submittedtext.style.background = 'green';
-                congratsText.textContent='';
-
-                   if(subTextArray.substring(i)!==' ' && subTextArray.substring(0,i).length < defTextArray.length &&subTextArray.substring(i-1)===' ' && subTextArray.length>length+1 )
-                       {
-                           wordCount++;
-                           length=subTextArray.length;
-                         }
+                submittedtext.style.color = 'green';
                 }
                 else {
-                submittedtext.style.background = 'red';
+               submittedtext.style.color='red';
             }
         }
     }
@@ -53,14 +47,23 @@ function valTyping() {
 //getting congrats message on finish
 
 finishButton.addEventListener('click',congo);
-
+let wordCount;
 function congo() {
-    if(defaulttext.value===submittedtext.value){
-        clearInterval(sec);
+    wordCount=1;
+    let subTextArray = submittedtext.value;
+    if(defaulttext.value===submittedtext.value) {
+        subTextArray = subTextArray.replace(/\s\s+/g, ' ');
+        for (let i = 0; i < subTextArray.length; i++) {
+            if (subTextArray[i] === ' ') {
+                wordCount++;
+            }
+        }
         resetFunction();
-        findSpeed();
-        congratsText.textContent='Congrats! You have successfully completed the task';
+        clearInterval(sec);
+        congratsText.textContent = 'Congrats! You have successfully completed the task';
+        totalWords.textContent = `${wordCount}`;
     }
+    findSpeed(wordCount);
 }
 
 
@@ -80,6 +83,7 @@ function resetFunction() {
     speed.textContent = '000';
     totalSeconds=0;
     totalSpeed=0;
+    totalWords.textContent='000';
     min=0;
 }
 // disable copy , cut , paste options in the textarea box
@@ -137,9 +141,9 @@ function resumeTimer() {
 // evaluating the typing speed => make every task with 100 words
 let totalSeconds;
 let totalSpeed;
-function findSpeed() {
+function findSpeed(wordCount) {
    totalSeconds = wordCountMin*60 + wordCountSec;
-   totalSpeed = (wordCount/totalSeconds)*60;
+   totalSpeed = Math.round((wordCount/totalSeconds)*60);
    speed.textContent=totalSpeed;
 
 }

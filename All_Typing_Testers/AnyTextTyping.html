@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Text Typing Test</title>
+    <link rel="stylesheet" href="../styles.css"/>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="row">
+                <div id="logo">
+                    <img src="../images/logo.jpg" width="200px" height="80px" class="img-fluid"/>
+                </div>
+            </div>
+            <div class="row">
+                <div id="profile">
+                    <h5 class="profile-heading">My Profile</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div id="my-image">
+                    <img src="../images/my-image.jpg" width="120px" height="120px" class="img-fluid rounded-circle"/>
+                </div>
+            </div>
+            <div class="row">
+                <div id="contact-me">
+                    <h5>contact me:</h5><p class="text-info"><b>Mobile: 8790030755<br/>Email: pavanreddy2693@gmail.com</b></p>
+                </div>
+            </div>
+            <div class="row">
+                <div id="follow-me">
+                    <h5>Follow me:</h5> <a href="https://www.facebook.com/pavankumarreddy.mukkara" class="bg-primary" target="_blank">Facebook</a> <a href="https://api.whatsapp.com/send?phone=919739249781" target="_blank" class="bg-primary">Whatsapp</a>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div id="my-resume">
+                    <a href="https://pavanreddysfdc.github.io/" class="bg-primary" target="_blank">View Resume</a>
+                </div>
+            </div>
+
+        </div>
+        <div id="main-div" class="col-sm-6">
+            <div>
+                <h1>Test Your Typing Skills</h1>
+            </div>
+            <form>
+                <div class="textarea-div">
+                    <textarea id="textEntered" style="height: 400px;"></textarea>
+                </div>
+                <div>
+                    <p id="congrats"></p>
+                </div>
+                <div id="footer">
+                    <hr/>
+                    <p> Designed and Developed By: <b>M.Pavan Kumar Reddy.</b></p>
+                    <img src="../images/logo.jpg" width="60px" height="40px;">
+                    &copy;All rights Reserved
+                </div>
+
+            </form>
+            <hr/>
+
+        </div>
+        <div class="col-sm-2" id="side">
+
+            <p><b>Time </b><span id="min">00</span> min <span id="sec">00 </span>sec <span id="typingSpeed"></span> </p>
+            <button id="finish-button" type="button" class="btn btn-block btn-primary">Finish</button>
+            <button id="pause-button" type="button" class="btn btn-block btn-primary">Pause</button>
+            <button id="resume-button" type="button" class="btn btn-block btn-primary">Resume</button>
+            <button id="reset-button" type="button" class="btn btn-block btn-primary">Reset</button>
+            <h5>Typing Speed:</h5>
+            <button id="wordsTypedButton" type="button" class="btn btn-block btn-primary"><span id="wordsTyped">000</span> words</button>
+            <button id="typingspeed-button" type="button" class="btn btn-block btn-primary"><span id="typing-speed">000</span> wpm</button>
+
+        </div>
+    </div>
+</div>
+<script src="../RandomTextTyping.js"></script>
+</body>
+</html>
